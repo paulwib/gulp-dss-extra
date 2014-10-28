@@ -56,6 +56,10 @@ A key/value hash of properties to copy from the first block to `file.meta`. The 
 
 Note when using the function the property doesn't have to already exist, it can be grabbed from another property. For example in the default options the value `sectionName` is assigned from the first block's `@name` in files with the basename `index`.
 
+### normalizeArray `array`
+
+In DSS if properties are only put into arrays if there is more than one. Properties listed in `normalizeArray` will be forced into an array. Defaults to `['variable', 'state']`.
+
 [Documented Style Sheets]:https://github.com/darcyclarke/DSS
 [DSS]:https://github.com/darcyclarke/DSS
 
