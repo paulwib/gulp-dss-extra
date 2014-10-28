@@ -25,7 +25,7 @@ These parsers are in addition to default `@name`, `@description`, `@state` and `
 
 * `@variable {name} - {description}` - Document a variable. The `name` must match the name in the file without a `$` prefix. The value will be extracted from the file and assigned to `value`. It won't be computed so things like `$height: 5px*10` will have a literal value `5px*10`.
 
-### `@state` Markup Examples
+### Markup Examples for `@state`
 
 The `@state` is post-parsed to add HTML examples for each state. This is rendered with the `state` (using hogan) so you can add class names etc. For example:
 
@@ -39,7 +39,7 @@ The `@state` is post-parsed to add HTML examples for each state. This is rendere
 
 As well as `block.markup` each state will now have `markup.example` and `markup.escaped` added. Empty attributes will be stripped from the stateless example to avoid clutter.
 
-### `file.meta` Properties
+### Properties Added to `file.meta`
 
 * `sectionName` - The `@name` from the first block in files with basename `index` is copied to `file.meta.sectionName`
 * `subsectionName` - The `@name` from the first block in files *without* basename `index` is copied to `file.meta.subsectionName`
