@@ -1,6 +1,6 @@
 {
   "name": "gulp-dss-extra",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "gulp plug-in to parse DSS with extra annotations",
   "main": "index.js",
   "license": "MIT",
