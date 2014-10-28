@@ -39,6 +39,11 @@ The `@state` is post-parsed to add HTML examples for each state. This is rendere
 
 As well as `block.markup` each state will now have `markup.example` and `markup.escaped` added. Empty attributes will be stripped from the stateless example to avoid clutter.
 
+### `file.meta` Properties
+
+* `sectionName` - The `@name` from the first block in files with basename `index` is copied to `file.meta.sectionName`
+* `subsectionName` - The `@name` from the first block in files *without* basename `index` is copied to `file.meta.subsectionName`
+
 ## Options
 
 ### extra `object`
@@ -47,7 +52,9 @@ An key/value hash of additional properties to extract. The value should be a fun
 
 ### copyFirst `object`
 
-A key/value hash of properties to copy from the first block to `file.meta`. The value can be a function which will be passed the `file` and the `firstBlock` and should assign, or `true` just to copy the property.
+A key/value hash of properties to copy from the first block to `file.meta`. The value can be a function with signature `function (file, firstBlock)` and should return the value, or `true` just to copy the property.
+
+Note when using the function the property doesn't have to already exist, it can be grabbed from another property. For example in the default options the value `sectionName` is assigned from the first block's `@name` in files with the basename `index`.
 
 [Documented Style Sheets]:https://github.com/darcyclarke/DSS
 [DSS]:https://github.com/darcyclarke/DSS
