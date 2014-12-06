@@ -1,5 +1,34 @@
-gulp-dss-extra  [![NPM version][npm-image]][npm-url] [![Dependency Status][depstat-image]][depstat-url] [![Build Status][travis-image]][travis-url]
+gulp-dss-extra
 ===
+
+
+**DEPRECATED!**
+
+The variable parser has been moved to [dss-variable-parser](https://github.com/paulwib/dss-parser-variable) as useful in various contexts, not just gulp.
+
+The markup examples for state can be made with some post-processing of your DSS like:
+
+```javascript
+dss.blocks.forEach(function(block) {
+    if (block.hasOwnProperty('state') && block.hasOwnProperty('markup')) {
+        template = hogan.compile(block.markup.example);
+        block.markup.example = template.render({}).replace(/\s?[a-z]+="\s*"/gi, '');
+        block.markup.escaped = block.markup.example.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        block.state.forEach(function(state) {
+            state.markup = {
+                example: template.render(state),
+                escaped: template.render(state).replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            };
+        });
+    }
+});
+```
+Because this relies on 2 DSS variables being present (`markup` and `state`) it's not possible to build this into a DSS parser AFAICT.
+
+The other bits and pieces are easy to replicate if you need then :)
+
+---
 
 A gulp plug-in for parsing [Documented Style Sheets][] (DSS) comments in your CSS/SCSS/LESS, with a couple of extra features.
 
